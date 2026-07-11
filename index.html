@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Подключаем шрифт -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Стили -->
+  <style>
+    /* Загрузка шрифта */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+    /* Базовые настройки */
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #FFFFCF;
+    }
+
+    .card {
+      max-width: 500px;
+      padding: 3em;
+      box-shadow: rgb(55, 1, 1) 0px 2px 8px 0px;
+      border-radius: 1rem;
+      text-align: center;
+    }
+
+    /* Верхняя часть */
+    .header-icon {
+      color: #ffc74d; /* Цвет свечи */
+      font-size: 3rem;
+      animation: flicker 1s infinite alternate;
+    }
+    @keyframes flicker { from { opacity: 1; } to { opacity: .95; }}
+
+    h1 {
+      font-weight: bold;
+      letter-spacing: -0.5px;
+      color: #8A4349;
+    }
+ 
+
+    .subhead {
+      font-style: italic;
+      color: #8A4349;
+    }
+
+    /* Изображение */
+    .image-container {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 1rem;
+      position: relative;
+      margin-top: 1.5rem;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+    .image-container:hover img {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 10px rgba(0,0,0,.2));
+    }
+
+    /* Поздравление */
+    .wish-block {
+      margin-top: 1.5em;
+      line-height: 1.4;
+      text-align: left;
+      padding-left: 1.5em;
+    }
+
+    /* Кнопки */
+    .btn {
+      cursor: pointer;
+      padding: 0.75em 1.5em;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      margin-right: 1rem;
+    }
+    .btn-primary {
+      background-color: #8A4349;
+      color: white;
+      border: none;
+    }
+    .btn-secondary {
+      background-color: transparent;
+      color: #8A4349;
+      border: 1px solid currentColor;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+    
+  </style>
+
+  <title>С днём рождения, Миша!</title>
+</head>
+<body>
+  <div class="card"> 
+    
+    <!-- Шапка -->
+    <header>
+      <div class="header-icon">🎂</div>
+      <h1>С днём рождения, Миша!</h1>
+      <p class="subhead">✦ 08.08.2026 ✦</p>
+    </header>
+
+    <!-- Изображение -->
+    <section class="image-container">
+      <!-- ВАЖНО! Вставьте сюда свою ссылку или удалите этот блок целиком -->
+      <img src="https://downloader.disk.yandex.ru/preview/48217759a51794093c1f109ca85faa2e00ebdb75dbaa3bff7a55a9a52134dad4/6a52f62b/dVBOgvGPmEnoFKUIC2Q6LB_lpOgLsOBnJayy47pnj_OiMn_KxXY2OKRSNiBfeTezhbABwfkLGVX1UvSfydoByQ%3D%3D?uid=0&filename=Misha.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v3&is_direct_zip_experiment=1&size=2048x2048">    </section>
+    <!-- Поздравление -->
+    <main class="wish-block">
+      <blockquote class="wish-text" style="color: #462809; ">
+        Будь здоров, успешен и уверен в завтрашнем дне. Желаю стальной выдержки, надежного плеча рядом и покорения всех вершин, которые ты себе наметил. Пусть любая цель достигается легко, а энергия никогда не кончается. Цени себя и свое время. Хорошего дня и последующих дней!
+      </blockquote>
+    </main>
+   
+    <!-- Футер с кнопками -->
+    <footer class="footer-actions">
+      <button class="btn btn-primary" onclick="window.print()">
+        🖨️ Распечатать
+      </button>
+      <button class="btn btn-secondary" onclick="window.location.reload();">
+        ⟳ Обновить
+      </button>
+    </footer>
+  </div>
+</body>
+</html>
