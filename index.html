@@ -1,133 +1,137 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Подключаем шрифт -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Стили -->
+  <style>
+    /* Загрузка шрифта */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+    /* Базовые настройки */
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #FFFFCF;
+    }
+
+    .card {
+      max-width: 500px;
+      padding: 3em;
+      box-shadow: rgb(55, 1, 1) 0px 2px 8px 0px;
+      border-radius: 1rem;
+      text-align: center;
+    }
+
+    /* Верхняя часть */
+    /* Размер и стиль для хомяка */
+      .hamster {
+          height: 3rem; /* Можно менять по вкусу */
+          filter: drop-shadow(0 0 5px rgba(255, 200, 77, 0.5)); /* Мягкая золотистая тень */
+      }
+    @keyframes flicker { from { opacity: 1; } to { opacity: .95; }}
+
+    h1 {
+      font-weight: bold;
+      letter-spacing: -0.5px;
+      color: #8A4349;
+    }
+ 
+
+    .subhead {
+      font-style: italic;
+      color: #8A4349;
+    }
+
+    /* Изображение */
+    .image-container {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 1rem;
+      position: relative;
+      margin-top: 1.5rem;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+    .image-container:hover img {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 10px rgba(0,0,0,.2));
+    }
+
+    /* Поздравление */
+    .wish-block {
+      margin-top: 1.5em;
+      line-height: 1.4;
+      text-align: left;
+      padding-left: 1.5em;
+    }
+
+    /* Кнопки */
+    .btn {
+      cursor: pointer;
+      padding: 0.75em 1.5em;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      margin-right: 1rem;
+    }
+    .btn-primary {
+      background-color: #8A4349;
+      color: white;
+      border: none;
+    }
     
-    <!-- Подключаем шрифт -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+    
+  </style>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Nunito Sans', sans-serif;
-            color: #EDEDED; /* Светло-серый текст */
-            
-            /* Делаем фотографию ФОНОМ, но НЕ "cover", а "contain" */
-            background-image: url('Misha.jpg'); 
-            background-size: contain; /* Картинка помещается ВПИСЬ в окно */
-            background-position: center top; /* Выравнивание сверху */
-            background-repeat: no-repeat;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        .header {
-            position: fixed;
-            top: 2rem;
-            left: 2rem;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            gap: 1em;
-        }
-
-        h1,
-        time {
-            color: #FFC74D; /* Золотистый акцент */
-            letter-spacing: -0.5px;
-            line-height: 1.2;
-        }
-
-        /* Хомяк с тортом рядом с заголовком */
-        img.hamster {
-            height: 3rem; /* Размер можно менять по вкусу */
-            filter: drop-shadow(0 0 5px rgba(255, 200, 77, 0.5));
-        }
-
-        /* Поздравительный блок справа внизу */
-        .wish-container {
-            width: clamp(300px, 60vw, 400px);
-            max-width: 90%;
-            text-align: left;
-            position: absolute;
-            right: 2rem;
-            bottom: 2rem;
-            backdrop-filter: blur(10px);
-            background: rgba(0, 0, 0, 0.7); /* Тёмная прозрачная подложка */
-            border-radius: 1rem;
-            line-height: 1.5;
-            opacity: 1;
-            transform: none;
-        }
-
-        footer {
-            opacity: 0.8;
-            font-style: italic;
-            margin-top: 1em;
-        }
-
-        /* Кнопка скачивания слева внизу */
-        .download-btn {
-            cursor: pointer;
-            padding: 0.75em 1.5em;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: all 0.2s ease;
-            background-color: #FFC74D;
-            color: white;
-            border: none;
-            position: absolute;
-            bottom: 2rem;
-            left: 2rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-
-            &:hover {
-                transform: scale(1.05);
-                filter: brightness(1.1) saturate(1.2);
-            }
-        }
-
-        @media (max-width: 600px) { /* Мобильные устройства */
-            .header {
-                justify-content: center;
-                top: 1rem;
-            }
-            .wish-container {
-                right: auto;
-                left: 50%;
-                transform: translateX(-50%) translateY(100%);
-            }
-            .download-btn {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-    </style>
+  <title>С днём рождения, Миша!</title>
 </head>
 <body>
-<!-- Шапка с хомяком и поздравлением -->
-<div class="header">
-    <img class="hamster" src="hamster-cake.png" alt="Хомяк с тортом"> <!-- ВАЖНО: загрузите этот файл -->
-    <h1>С днём рождения, Миша!</h1>
-    <time datetime="2026-08-08"><span style="font-size: 0.8em;">✦ 08.08.2026 ✦</span></time>
-</div>
+  <div class="card"> 
+    <!-- Шапка -->
+    <header>
+      <img class="hamster" src="Image.png" width="40">
+      <h1>С днём рождения, Миша!</h1>
+      <p class="subhead">✦ 08.08.2026 ✦</p>
+    </header>
 
-<!-- Блок с поздравлением -->
-<div class="wish-container">
-                Будь здоров, успешен и уверен в завтрашнем дне. Желаю стальной выдержки, надежного плеча рядом и покорения всех вершин, которые ты себе наметил. Пусть любая цель достигается легко, а энергия никогда не кончается. Цени себя и свое время. Хорошего дня и последующих дней!
-</div>
-
-<!-- Кнопка скачивания слева внизу -->
-<div class="download-btn" onclick="location.href='./Misha.jpg'">
-  Скачать фото
-</div>
+    <!-- Изображение -->
+    <section class="image-container">
+      <!-- ВАЖНО! Вставьте сюда свою ссылку или удалите этот блок целиком -->
+     <img src="CyXQHpFica1X5uOcvBvNxljVIo3PjoXhimFDLQlHAMaFausYbRtptQF9eSybMGGQhuC56TRGUFngS7pSBt24xEEN.jpg">    
+    </section>
+    <!-- Поздравление -->
+    <main class="wish-block">
+      <blockquote class="wish-text" style="color: #462809; ">
+        Будь здоров, успешен и уверен в завтрашнем дне. Желаю стальной выдержки, надежного плеча рядом и покорения всех вершин, которые ты себе наметил. Пусть любая цель достигается легко, а энергия никогда не кончается. Цени себя и свое время. Хорошего дня и последующих дней!
+      </blockquote>
+    </main>
+   
+    <!-- Футер с кнопками -->
+    <footer class="footer-actions">
+     <!-- Кнопка "Скачать фото". При клике браузер предложит сохранить изображение -->
+<button class="btn btn-primary" 
+        style="background-color: #8A4349; color:white;" /* Золотистый цвет */
+        onclick="location.href='./Misha web.png'">
+    Скачать фото
+</button>
+    
+    </footer>
+  </div>
 </body>
 </html>
