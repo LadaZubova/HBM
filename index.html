@@ -136,26 +136,11 @@
       <button class="btn btn-primary" onclick="downloadImage()">
           Скачать фото с плаката 
       </button>
-      
-      <!-- Блок с музыкой (если вы добавляли её ранее) -->
-      <div style="margin-top: 1em; text-align: center;">
-        <audio id="birthday-song" src="music.mp3"></audio>
-        <button class="btn" style="background-color: #FFFFCF; color: #462809; border: 1px solid #462809;" onclick="toggleMusic()">Включить / Выключить музыку</button>
-      </div>
     </footer>
   </div>
 
 <!-- Добавляем скрипт управления внизу страницы -->
 <script>
-  // Функция для музыки
-  const audio = document.getElementById('birthday-song');
-  function toggleMusic() {
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
-  }
 
   // Новая функция для скачивания изображения
   function downloadImage() {
@@ -177,7 +162,6 @@
     window.open('./Misha web.png', '_blank');
   }
 </script>
-    
     </footer>
   </div>
 </body>
